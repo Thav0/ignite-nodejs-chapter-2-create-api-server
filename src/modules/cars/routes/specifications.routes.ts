@@ -1,10 +1,10 @@
 import { Request, Response, Router } from 'express';
 
-import { SpecificationRepository } from '../repositories/SpecificationRepository';
+import { SpecificationsRepository } from '../repositories/SpecificationsRepository';
 import { CreateSpecificationService } from '../services/CreateSpecificationService';
 
 const specificationsRoutes = Router();
-const specificationsRepository = new SpecificationRepository();
+const specificationsRepository = new SpecificationsRepository();
 
 specificationsRoutes.post('/', (request: Request, response: Response) => {
     const { name, description } = request.body;
