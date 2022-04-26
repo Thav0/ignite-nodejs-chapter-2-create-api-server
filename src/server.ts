@@ -1,7 +1,7 @@
 import express from 'express';
 
-import { categoriesRoutes } from './routes/categories.routes';
-import { specificationsRoutes } from './routes/specifications.routes';
+import { categoriesRoutes } from './modules/cars/routes/categories.routes';
+import { specificationsRoutes } from './modules/specifications/routes/specifications.routes';
 
 const app = express();
 
