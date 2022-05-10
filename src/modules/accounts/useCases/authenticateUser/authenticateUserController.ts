@@ -11,12 +11,12 @@ class AuthenticateUserController {
             AuthenticateUserUseCase
         );
 
-        await authenticateUserUseCase.execute({
+        const authenticateInfo = await authenticateUserUseCase.execute({
             password,
             email,
         });
 
-        return response.status(201).send();
+        return response.status(201).json(authenticateInfo);
     }
 }
 
