@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { deleteFile } from '../../../../utils/file';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 interface IRequest {
@@ -14,14 +15,12 @@ class UpdateUserAvatarUseCase {
         private usersRepository: IUsersRepository
     ) {}
 
-    // Adicionar coluna avatar na tabela user ✅
-    // Refatorar user com a nova coluna ✅
-    // Configuração upload multer
-    // Criar regra de negócio do upload
-    // Criar controller
-
     async execute({ user_id, avatar_file }: IRequest): Promise<void> {
         const user = await this.usersRepository.findById(user_id);
+
+        if (user.avatar) {
+            await deleteFile(`./tmp/avatar/${user.avatar}`);
+        }
 
         user.avatar = avatar_file;
 
