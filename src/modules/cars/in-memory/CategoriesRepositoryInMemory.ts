@@ -10,7 +10,7 @@ class CategoriesRepositoryInMemory implements ICategoryRepositories {
     async findByName(name: string): Promise<Category> {
         const category = this.categories.find(
             (category) => category.name === name
-        );
+        ) as Category;
 
         return category;
     }
