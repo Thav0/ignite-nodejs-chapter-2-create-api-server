@@ -10,7 +10,7 @@
         "@config/*": ["config/*"],
         "@shared/*": ["shared/*"],
         "@errors/*": ["errors/*"],
-        "@utils/*": ["utils/*"]
+        "@utils/*": ["utils/*"],
     },
     "resolveJsonModule": true,
     "outDir": "./dist",
