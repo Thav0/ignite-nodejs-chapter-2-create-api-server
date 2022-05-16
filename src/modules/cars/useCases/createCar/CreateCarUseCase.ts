@@ -1,12 +1,14 @@
 import { inject, injectable } from 'tsyringe';
 
 import { ICreateCarDTO } from '@modules/cars/dtos/ICreateCarDTO';
+import { Car } from '@modules/cars/infra/typeorm/entities/Car';
 import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
+import { AppError } from '@shared/errors/AppError';
 
-@injectable()
+// @injectable()
 class CreateCarUseCase {
     constructor(
-        @inject('CarsRepository')
+        // @inject('CarsRepository')
         private carsRepository: ICarsRepository
     ) {}
 
@@ -18,8 +20,18 @@ class CreateCarUseCase {
         fine_amount,
         brand,
         category_id,
-    }: ICreateCarDTO): Promise<void> {
-        await this.carsRepository.create({
+    }: ICreateCarDTO): Promise<Car> {
+        const carAlreadyExists = await this.carsRepository.findByLicensePlate(
+            license_plate
+        );
+
+        if (carAlreadyExists) {
+            throw new AppError(
+                `This ${license_plate} license plate is already being used by one car`
+            );
+        }
+
+        const car = await this.carsRepository.create({
             name,
             description,
             daily_rate,
@@ -28,6 +40,8 @@ class CreateCarUseCase {
             brand,
             category_id,
         });
+
+        return car;
     }
 }
 

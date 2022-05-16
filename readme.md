@@ -5,9 +5,8 @@
 
 **RN**
 - Não deve ser possível cadastrar o carro com a mesma placa
-- Não deve ser possível alterar a placa de um carro que já esteja cadastrado
 - O carro deve ser cadastrado como disponível
-- Apenas administradores poderão cadastrar carros
+- * Apenas administradores poderão cadastrar carros
 
 # Listagem de carros
 
