@@ -1,5 +1,5 @@
 import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
-import { UsersRepositoryInMemory } from '@modules/accounts/repositories/in-memory/UsersRepositoryInMemory';
+import { UsersRepositoryInMemory } from '@modules/accounts/in-memory/UsersRepositoryInMemory';
 import { CreateUserUseCase } from '@modules/accounts/useCases/createUser/createUserUseCase';
 import { AppError } from '@shared/errors/AppError';
 
