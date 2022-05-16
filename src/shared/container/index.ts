@@ -4,7 +4,7 @@ import { UsersRepository } from '@modules/accounts/infra/repositories/implementa
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { CategoriesRepository } from '@modules/cars/infra/typeorm/repositories/implementations/CategoriesRepository';
 import { SpecificationsRepository } from '@modules/cars/infra/typeorm/repositories/implementations/SpecificationsRepository';
-import { ICategoryRepositories } from '@modules/cars/repositories/ICategoryRepositories';
+import { ICategoryRepositories } from '@modules/cars/repositories/ICategoryRepository';
 import { ISpecificationRepositories } from '@modules/cars/repositories/ISpecificationRepositories';
 
 // ICategoryRepository
