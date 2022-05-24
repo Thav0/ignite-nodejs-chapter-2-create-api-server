@@ -15,6 +15,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
         fine_amount,
         brand,
         category_id,
+        id,
     }: ICreateCarDTO): Promise<Car> {
         const newCar = new Car();
 
@@ -26,6 +27,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
             fine_amount,
             brand,
             category_id,
+            id,
         });
 
         this.cars.push(newCar);
@@ -57,6 +59,10 @@ class CarsRepositoryInMemory implements ICarsRepository {
         });
 
         return availableCars;
+    }
+
+    async findById(id: string): Promise<Car | undefined> {
+        return this.cars.find((car) => car.id === id);
     }
 }
 
