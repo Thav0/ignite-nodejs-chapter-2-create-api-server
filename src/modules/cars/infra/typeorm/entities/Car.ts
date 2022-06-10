@@ -54,9 +54,6 @@ class Car {
     })
     specifications: Specification[];
 
-    @Column()
-    specification_id: string;
-
     @CreateDateColumn()
     created_at: Date;
 
